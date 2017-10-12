@@ -7,10 +7,14 @@ namespace TAMK.VCSExample
         [SerializeField, Tooltip ("Cube's speed")]
         private float _Speed = 5f;
 
-		void Update()
-		{
+        void Update()
+        {
             Move();
-		}
+            if (Physics.Raycast(transform.position, Vector3.down, 0.5f) && Input.GetKey(KeyCode.Space))
+            {
+                GetComponent<Rigidbody>().AddForce(new Vector3(0, 40f, 0), ForceMode.Impulse);
+            }
+        }
 
         private void Move()
         {
