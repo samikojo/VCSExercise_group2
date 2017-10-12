@@ -6,6 +6,32 @@ namespace TAMK.VCSExample
 	{
 		void Update()
 		{
+            Rotate();
 		}
+
+        private void Rotate()
+        {
+            short rotationY = 0;
+
+            short left = -5;
+            short right = 5;
+
+            if (Input.GetKey(KeyCode.Q))
+            {
+                rotationY += left;
+            }
+
+            if (Input.GetKey(KeyCode.E))
+            {
+                rotationY += right;
+            }
+
+            if (rotationY != 0)
+            {
+                gameObject.transform.Rotate(gameObject.transform.rotation.x,
+                                            rotationY,
+                                            gameObject.transform.rotation.z);
+            }
+        }
 	}
 }
