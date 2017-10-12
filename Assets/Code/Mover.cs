@@ -66,7 +66,7 @@ namespace TAMK.VCSExample
 
         private void Spawn()
         {
-            if(Input.GetKeyDown(KeyCode.P))
+            if(Input.GetKey(KeyCode.P))
             {
                 Instantiate(this.gameObject, new Vector3(transform.position.x + 0.5f, transform.position.y, transform.position.z), transform.rotation);
             }
