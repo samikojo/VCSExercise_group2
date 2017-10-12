@@ -6,12 +6,15 @@ namespace TAMK.VCSExample
 	{
         [SerializeField, Tooltip ("Cube's speed")]
         private float _Speed = 5f;
+        public Material material;
+
 
         void Update()
         {
             Move();
             Rotate();
             Spawn();
+            PartyTiem();
 
             if (Physics.Raycast(transform.position, Vector3.down, 0.5f) && Input.GetKey(KeyCode.Space))
             {
@@ -70,6 +73,14 @@ namespace TAMK.VCSExample
             {
                 Instantiate(this.gameObject, new Vector3(transform.position.x + 0.5f, transform.position.y, transform.position.z), transform.rotation);
             }
+        }
+
+        private void PartyTiem ()
+        {
+            transform.localScale = new Vector3(Random.Range(1, 10), Random.Range(1, 10), Random.Range(1, 10));
+
+            Color colour = new Color(Random.Range(0f,1f), Random.Range(0f, 1f), Random.Range(0f, 1f));
+            material.color = colour;
         }
     }
 }
