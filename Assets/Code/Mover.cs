@@ -42,8 +42,8 @@ namespace TAMK.VCSExample
         {
             short rotationY = 0;
 
-            short left = -5;
-            short right = 5;
+            short right = 100;
+            short left = (short) (-1 * right);
 
             if (Input.GetKey(KeyCode.Q))
             {
@@ -58,7 +58,7 @@ namespace TAMK.VCSExample
             if (rotationY != 0)
             {
                 gameObject.transform.Rotate(gameObject.transform.rotation.x,
-                                            rotationY,
+                                            rotationY * Time.deltaTime,
                                             gameObject.transform.rotation.z);
             }
         }
