@@ -11,6 +11,7 @@ namespace TAMK.VCSExample
         {
             Move();
             Rotate();
+            Spawn();
 
             if (Physics.Raycast(transform.position, Vector3.down, 0.5f) && Input.GetKey(KeyCode.Space))
             {
@@ -60,6 +61,14 @@ namespace TAMK.VCSExample
                 gameObject.transform.Rotate(gameObject.transform.rotation.x,
                                             rotationY,
                                             gameObject.transform.rotation.z);
+            }
+        }
+
+        private void Spawn()
+        {
+            if(Input.GetKeyDown(KeyCode.P))
+            {
+                Instantiate(this.gameObject, new Vector3(transform.position.x + 0.5f, transform.position.y, transform.position.z), transform.rotation);
             }
         }
     }
